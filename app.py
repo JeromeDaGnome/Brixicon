@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_brixicals")
 def get_brixicals():
-    brixicals = mongo.db.tasks.find()
+    brixicals = mongo.db.brixicals.find()
     return render_template("brixicals.html", brixicals=brixicals)
 
 
