@@ -125,6 +125,17 @@ def add_brixical():
 
 @app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
 def edit_brixical(brixical_id):
+    
+    if request.method == "POST":
+
+        submit = {
+            "brixword": request.form.get("brixword"),
+            "definition": request.form.get("definition"),
+            "imageUrl": request.form.get("imageUrl"),
+        }
+        mongo.db.brixicals.updateOne({"_id": ObjectId(brixical_id)}, submit)
+        flash("Brixicon Entry Successfully Updated!")
+        
     brixical = mongo.db.brixicals.find_one({"_id": ObjectId(brixical_id)})
     return render_template("edit_brixical.html", brixical=brixical)
 
