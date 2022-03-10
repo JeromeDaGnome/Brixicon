@@ -103,6 +103,26 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route("/add_brixical", methods=["GET", "POST"])
+def add_brixical():
+    if request.method == "POST":
+        upvotes = 0
+        downvotes = 0
+        brixical = {
+            "brixword": request.form.get("brixword"),
+            "definition": request.form.get("definition"),
+            "upvotes": upvotes,
+            "downvotes": downvotes,
+            "imageUrl": request.form.get("imageUrl"),
+            "created_by": session["user"]
+        }
+        mongo.db.brixicals.insert_one(brixical)
+        flash("Brixicon Entry Successfully Added!")
+        return redirect(url_for("get_brixicals"))
+
+    return render_template("add_brixical.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
