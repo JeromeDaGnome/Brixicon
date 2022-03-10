@@ -123,6 +123,11 @@ def add_brixical():
     return render_template("add_brixical.html")
 
 
+@app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
+def edit_brixical(brixical_id):
+    brixical = mongo.db.brixicals.find_one({"_id": ObjectId(brixical_id)})
+    return render_template("edit_brixical.html", brixical=brixical)
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),

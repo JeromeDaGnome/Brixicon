@@ -7,6 +7,10 @@
             <div class="card horizontal">
                 <div class="card-image">
                     <img src="{{ brixical.imageUrl }}">
+                    {% if session.user == "admin" %}
+                        <a href="{{ url_for('edit_brixical', brixical_id=brixical._id) }}" class="btn-small yellow black-text">Edit</a>
+                        <a href="" class="btn-small yellow black-text">Delete</a>
+                    {% endif %}
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
