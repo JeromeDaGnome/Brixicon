@@ -133,11 +133,19 @@ def edit_brixical(brixical_id):
             "definition": request.form.get("definition"),
             "imageUrl": request.form.get("imageUrl"),
         }
-        mongo.db.brixicals.updateOne({"_id": ObjectId(brixical_id)}, submit)
+        mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
         flash("Brixicon Entry Successfully Updated!")
         
     brixical = mongo.db.brixicals.find_one({"_id": ObjectId(brixical_id)})
     return render_template("edit_brixical.html", brixical=brixical)
+
+
+@app.route("/delete_brixical/<brixical_id>")
+def delete_brixical(brixical_id):
+    mongo.db.brixicals.delete_one({"_id": ObjectId(brixical_id)})
+    flash("Brixicon Entry Successfully Deleted")
+    return redirect(url_for("get_brixicals"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
