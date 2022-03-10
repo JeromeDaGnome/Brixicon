@@ -12,49 +12,65 @@
     <title>Brixicon</title>
 </head>
 
-<header>
+<body>
+    <header>
 
-    <nav class="nav-extended text-standout red accent-4">
-        <!-- Nav Bar -->
-        <div class="nav-wrapper">
-          <a href="{{ url_for('get_brixicals') }}" class="brand-logo">Brixicon</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-          <ul class="right hide-on-med-and-down">
+        <nav class="nav-extended text-standout red accent-4">
+            <!-- Nav Bar -->
+            <div class="nav-wrapper">
+            <a href="{{ url_for('get_brixicals') }}" class="brand-logo">Brixicon</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
+                <li><a href="#">Add</a></li>
+                <li><a href="#">Edit</a></li>
+                <li><a href="#">Delete</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+            </div>
+        </nav>
+        
+        <!-- Mobile Nav -->
+        <ul class="sidenav red accent-4" id="mobile-demo">
+            <li><h4 class="center-align">Brixicon</h4></li>
             <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
             <li><a href="#">Add</a></li>
             <li><a href="#">Edit</a></li>
             <li><a href="#">Delete</a></li>
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Register</a></li>
+            <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="#">Login</a></li>
             <li><a href="#">Logout</a></li>
-          </ul>
-        </div>
-    </nav>
-    
-    <!-- Mobile Nav -->
-    <ul class="sidenav red accent-4" id="mobile-demo">
-        <li><h4 class="center-align">Brixicon</h4></li>
-        <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
-        <li><a href="#">Add</a></li>
-        <li><a href="#">Edit</a></li>
-        <li><a href="#">Delete</a></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Logout</a></li>
-    </ul>
+        </ul>
 
-</header>
+    </header>
 
-<body>
-    {% block content %}
+    <section>
+        <!-- flash message display area -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row">
+                        <h4 class="red center-align">{{ message }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}
     {% endblock %}
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-{% block scripts %}
-{% endblock %}
 </body>
 </html>
