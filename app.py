@@ -25,6 +25,13 @@ def get_brixicals():
     return render_template("brixicals.html", brixicals=brixicals)
 
 
+@app.route("/search", methods=["GET","POST"])
+def search():
+    query = request.form.get("query")
+    brixicals = mongo.db.brixicals.find({"$text":{"$search": query}})
+    return render_template("brixicals.html", brixicals=brixicals)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
