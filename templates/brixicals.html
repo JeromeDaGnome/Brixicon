@@ -2,11 +2,22 @@
 {% block content %}
 
     {% for brixical in brixicals %}
-        {{ brixical.brixword }}<br>
-        {{ brixical.definition }}<br>
-        {{ brixical.upvotes }}<br>
-        {{ brixical.downvotes }}<br>
-        {{ brixical.imageUrl }}<br>
-    {% endfor %}
-
+        <div class="col s12 m7">
+            <h4 class="header">{{ brixical.brixword }}</h4>
+            <div class="card horizontal small">
+                <div class="card-image">
+                    <img src="{{ brixical.imageUrl }}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>{{ brixical.definition }}</p>
+                    </div>
+                    <div class="card-action">
+                        <i class="fa-solid fa-thumbs-up"> {{ brixical.upvotes }} </i>
+                        <i class="fa-solid fa-thumbs-down"> {{ brixical.downvotes }} </i>
+                    </div>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
 {% endblock %}
