@@ -11,6 +11,42 @@
     {% endblock %}
     <title>Brixicon</title>
 </head>
+
+<header>
+
+    <nav class="nav-extended text-standout red accent-4">
+        <!-- Nav Bar -->
+        <div class="nav-wrapper">
+          <a href="{{ url_for('get_brixicals') }}" class="brand-logo">Brixicon</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
+            <li><a href="#">Add</a></li>
+            <li><a href="#">Edit</a></li>
+            <li><a href="#">Delete</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+    </nav>
+    
+    <!-- Mobile Nav -->
+    <ul class="sidenav red accent-4" id="mobile-demo">
+        <li><h4 class="center-align">Brixicon</h4></li>
+        <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
+        <li><a href="#">Add</a></li>
+        <li><a href="#">Edit</a></li>
+        <li><a href="#">Delete</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">Login</a></li>
+        <li><a href="#">Logout</a></li>
+    </ul>
+
+</header>
+
 <body>
     {% block content %}
     {% endblock %}

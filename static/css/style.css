@@ -1,3 +1,7 @@
 body {
     background-color: yellow;
 }
+
+.text-standout {
+    text-shadow: 2px 2px black;
+}
