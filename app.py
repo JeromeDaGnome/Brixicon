@@ -154,7 +154,7 @@ def delete_brixical(brixical_id):
     return redirect(url_for("get_brixicals"))
 
 
-@app.route("/upvote_brixical/<brixical_id>/<upvotes>")
+@app.route("/upvote_brixical/<brixical_id>/<upvotes>", methods=["GET", "POST"])
 def upvote_brixical(brixical_id, upvotes):
 
     if request.method == "POST":
@@ -167,7 +167,7 @@ def upvote_brixical(brixical_id, upvotes):
     return redirect(url_for("get_brixicals"))
 
 
-@app.route("/downvote_brixical/<brixical_id>/<downvotes>")
+@app.route("/downvote_brixical/<brixical_id>/<downvotes>", methods=["GET", "POST"])
 def downvote_brixical(brixical_id,downvotes):
 
     if request.method == "POST":
