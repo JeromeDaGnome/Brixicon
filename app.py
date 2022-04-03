@@ -154,6 +154,32 @@ def delete_brixical(brixical_id):
     return redirect(url_for("get_brixicals"))
 
 
+@app.route("/upvote_brixical/<brixical_id>")
+def upvote_brixical(brixical_id,upvotes):
+
+    if request.method == "POST":
+        upvotes = upvotes + 1
+        submit = {
+            "upvotes": upvotes
+        }
+        mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+        flash("Thanks for the Upvote!")
+    return redirect(url_for("get_brixicals"))
+
+
+@app.route("/downvote_brixical/<brixical_id>")
+def downvote_brixical(brixical_id,downvotes):
+
+    if request.method == "POST":
+        downvotes = downvotes + 1
+        submit = {
+            "downvotes": downvotes
+        }
+        mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+        flash("Thanks for the Downvote!")
+    return redirect(url_for("get_brixicals"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
