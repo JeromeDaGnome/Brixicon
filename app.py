@@ -157,26 +157,26 @@ def delete_brixical(brixical_id):
 @app.route("/upvote_brixical/<brixical_id>/<upvotes>", methods=["GET", "POST"])
 def upvote_brixical(brixical_id, upvotes):
 
-    if request.method == "POST":
-        upvotes = upvotes + 1
-        submit = {
-            "upvotes": upvotes
-        }
-        mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
-        flash("Thanks for the Upvote!")
+
+    upvotes = upvotes + 1
+    submit = {
+        "upvotes": upvotes
+    }
+    mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+    flash("Thanks for the Upvote!")
     return redirect(url_for("get_brixicals"))
 
 
 @app.route("/downvote_brixical/<brixical_id>/<downvotes>", methods=["GET", "POST"])
 def downvote_brixical(brixical_id,downvotes):
 
-    if request.method == "POST":
-        downvotes = downvotes + 1
-        submit = {
-            "downvotes": downvotes
-        }
-        mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
-        flash("Thanks for the Downvote!")
+
+    downvotes = downvotes + 1
+    submit = {
+        "downvotes": downvotes
+    }
+    mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+    flash("Thanks for the Downvote!")
     return redirect(url_for("get_brixicals"))
 
 
