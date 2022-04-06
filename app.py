@@ -162,8 +162,7 @@ def upvote_brixical(brixical_id, upvotes):
     submit = {
         "upvotes": upvotes
     }
-    flash(submit)
-    mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+    mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
     flash("Thanks for the Upvote!")
     return redirect(url_for("get_brixicals"))
 
@@ -171,11 +170,12 @@ def upvote_brixical(brixical_id, upvotes):
 @app.route("/downvote_brixical/<brixical_id>/<downvotes>", methods=["GET", "POST"])
 def downvote_brixical(brixical_id, downvotes):
 
-    downvotes = float(downvotes) + 1
+    downvotes = int(downvotes) + 1
+    downvotes = str(downvotes)
     submit = {
         "downvotes": downvotes
     }
-    mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+    mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
     flash("Thanks for the Downvote!")
     return redirect(url_for("get_brixicals"))
 
