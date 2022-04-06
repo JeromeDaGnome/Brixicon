@@ -158,7 +158,7 @@ def delete_brixical(brixical_id):
 def upvote_brixical(brixical_id, upvotes):
 
     upvotes = float(upvotes) + 1
-    print(upvotes)
+    print("test")
     submit = {
         "upvotes": upvotes
     }
