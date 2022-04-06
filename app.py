@@ -158,12 +158,11 @@ def delete_brixical(brixical_id):
 def upvote_brixical(brixical_id, upvotes):
     
     upvotes = int(upvotes) + 1
-    flash(upvotes)
     upvotes = str(upvotes)
-    flash("string " + upvotes)
     submit = {
         "upvotes": upvotes
     }
+    flash(submit)
     mongo.db.bricals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
     flash("Thanks for the Upvote!")
     return redirect(url_for("get_brixicals"))
