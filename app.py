@@ -158,7 +158,9 @@ def delete_brixical(brixical_id):
 def upvote_brixical(brixical_id, upvotes):
     
     upvotes = int(upvotes) + 1
+    flash(upvotes)
     upvotes = str(upvotes)
+    flash("string " + upvotes)
     submit = {
         "upvotes": upvotes
     }
