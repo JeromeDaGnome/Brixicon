@@ -157,8 +157,8 @@ def delete_brixical(brixical_id):
 @app.route("/upvote_brixical/<brixical_id>/<upvotes>", methods=["GET", "POST"])
 def upvote_brixical(brixical_id, upvotes):
     
-    upvotes = float(upvotes) + 1
-    flash(upvotes)
+    upvotes = int(upvotes) + 1
+    upvotes = str(upvotes)
     submit = {
         "upvotes": upvotes
     }
