@@ -15,6 +15,7 @@ body {
     text-shadow: 1px 1px black;
     font-size: x-large;
     font-weight: bold;
+    justify-content: center;
 }
 
 .profile-body {
@@ -22,4 +23,5 @@ body {
     text-shadow: 1px 1px black;
     font-size: medium;
     font-weight: bold;
+    justify-content: center;
 }
