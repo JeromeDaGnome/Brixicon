@@ -76,7 +76,7 @@ def login():
                 flash("Welcome, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
-                    "profile", username=session["user"]))
+                    "view_profile", username=session["user"]))
                 
             else:
                 # invalid password match
@@ -91,14 +91,14 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
+@app.route("/view_profile/<username>")
+def view_profile(username):
     # collect current users 'username' from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("view_profile.html", username=username)
     
     return redirect(url_for("login"))
 
