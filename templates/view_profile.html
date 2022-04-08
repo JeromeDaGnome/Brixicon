@@ -2,18 +2,17 @@
 {% block content %}
 
     <h3 class="center-align">{{ username.username }}'s Profile</h3>
-        <div class="col s12 m7">
+        <div class="card-stacked col s12 m7">
             <!-- First Name Field -->
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-pencil prefix"></i>
+                <div class="card-content col s12">
+                    <i class="fas fa-pencil prefix" id="fname">{{ username.fname }}</i>
                     <label for="fname">First Name</label>
-                    <div id="fname" name="fname">{{ username.fname }}</div>
                 </div>
             </div>
             <!-- Last Name Field -->
             <div class="row">
-                <div class="input-field col s12">
+                <div class="card-content col s12">
                     <i class="fas fa-pencil prefix"></i>
                     <div id="lname" name="lname">{{ username.lname }}</div>
                     <label for="lname">Last Name</label>
@@ -21,7 +20,7 @@
             </div>
             <!-- Email Field -->
             <div class="row">
-                <div class="input-field col s12">
+                <div class="card-content col s12">
                     <i class="fas fa-at prefix"></i>
                     <div id="email" name="email">{{ username.email }}</div>
                     <label for="email">Email</label>
@@ -29,7 +28,7 @@
             </div>
             <!-- Country Field -->
             <div class="row">
-                <div class="input-field col s12">
+                <div class="card-content col s12">
                     <i class="fas fa-earth-americas prefix"></i>
                     <div id="country" name="country">{{ username.country }}</div>
                     <label for="country">Country</label>
