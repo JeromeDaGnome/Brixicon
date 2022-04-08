@@ -57,7 +57,7 @@ def register():
         #log the username in the session cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("view_profile", username=session["user"]))
 
     return render_template("register.html")
 
