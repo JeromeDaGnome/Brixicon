@@ -16,3 +16,10 @@ body {
     font-size: x-large;
     font-weight: bold;
 }
+
+.profile-body {
+    color: white;
+    text-shadow: 1px 1px black;
+    font-size: medium;
+    font-weight: bold;
+}
