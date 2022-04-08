@@ -9,3 +9,10 @@ body {
 .flashes h4 {
     line-height: 2;
 }
+
+.profile-header {
+    color: white;
+    text-shadow: 1px 1px black;
+    font-size: x-large;
+    font-weight: bold;
+}
