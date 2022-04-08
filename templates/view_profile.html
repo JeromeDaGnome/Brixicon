@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="col s2 offset-s5 m6">
+    <div class="col s4 offset-s4 m6">
         <div class="card red accent-4">
             <div class="card-content">
-                <span class="card-title text-white">{{ username.username }}'s Profile</span>
+                <span class="brand-logo">{{ username.username }}'s Profile</span>
                 <p>First Name: {{ username.fname }}</p>
                 <p>Last Name: {{ username.lname }}</p>
                 <p>Email: {{ username.email }}</p>
                 <p>Country: {{ username.country }}</p>
             </div>
             <div class="card-action">
-            <a href="#">Edit your profile.</a>>
+                <a href="#">Edit your profile.</a>>
             </div>
         </div>
     </div>
