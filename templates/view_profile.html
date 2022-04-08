@@ -3,7 +3,7 @@
 
     <h3 class="center-align">{{ username }}'s Profile</h3>
 
-    {% with user = brixicon.users.find_one("_id") %}
+    {% with user = mongodb.brixicon.users.find_one("_id") %}
         <div class="col s12 m7">
             <div class="card horizontal">
                 <!-- First Name Field -->
