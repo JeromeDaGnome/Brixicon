@@ -91,8 +91,8 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/view_profile/<username>")
-def view_profile(username):
+@app.route("/view_profile/<username>/<fname>")
+def view_profile(username,fname):
     # collect current users 'username' from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})
