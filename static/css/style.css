@@ -56,11 +56,11 @@ a.liker-icon {
 }
 
 .searchbox {
-    display: block;
+    display: contents;
 }
 
 @media screen and (max-width: 600px) {
-    .row.valign-wrapper.center-align.searchbox {
+    .searchbox {
         display: block;
         background-color: purple;
     }    
