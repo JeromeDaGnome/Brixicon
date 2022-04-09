@@ -56,7 +56,7 @@ a.liker-icon {
 }
 
 .row.valign-wrapper.center-align.searchbox {
-    display: flexbox;
+    display: block;
 }
 
 @media screen and (max-width: 600px) {
