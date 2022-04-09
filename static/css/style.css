@@ -55,8 +55,9 @@ a.liker-icon {
     padding: 24px;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 600px) {
     .row.valign-wrapper.center-align.searchbox {
         display: block;
+        background-color: purple;
     }    
 }
