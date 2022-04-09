@@ -33,3 +33,23 @@ body {
     font-weight: bold;
     padding: 0 0 0 1.2rem;
 }
+
+.brix-desc {
+    padding: 24px;
+    border-radius: 0 0 2px 2px;
+    margin: 0;
+    line-height: 2.0rem;
+    font-size: 1.2rem;
+}
+
+a.liker-icon {
+    display: inline-block;
+    height: 30px;
+    width: 65px;
+}
+
+.card-action-custom {
+    a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+    color: #D50000;
+    transform: scale(1.4) rotate(-12deg);
+}
