@@ -6,6 +6,11 @@ body {
     text-shadow: 2px 2px black;
 }
 
+.text-inverse {
+    color:black;
+    font-weight: bold;
+}
+
 .flashes h4 {
     line-height: 2;
 }
