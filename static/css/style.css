@@ -65,7 +65,7 @@ a.liker-icon {
 }
 
 @media screen and (max-width: 600px) {
-
-    background-color: purple;
-  
+    body{
+        background-color: purple;
+    }
 }
