@@ -64,7 +64,7 @@ a.liker-icon {
     display: contents;
 }
 
-label {
+.input-field > label {
     font-size: 0.8rem;
     color: yellow;
   }
