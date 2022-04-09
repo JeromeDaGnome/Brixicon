@@ -48,7 +48,7 @@ a.liker-icon {
     width: 65px;
 }
 
-.card .card-action-custom {
+.card .card-stacked .card-action-custom {
     a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
     color: #D50000;
     transform: scale(1.4) rotate(-12deg);
