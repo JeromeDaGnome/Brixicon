@@ -4919,7 +4919,7 @@ small {
   -webkit-transition: color .3s ease;
   transition: color .3s ease;
   text-transform: uppercase;
-  transform: scale(1.2) rotate(-12deg);
+  transform: rotate(-12deg);
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
