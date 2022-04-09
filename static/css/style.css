@@ -60,12 +60,12 @@ a.liker-icon {
     padding: 24px;
 }
 
-.searchbox {
+#searchbox {
     display: contents;
 }
 
 @media screen and (max-width: 600px) {
-    .searchbox {
+    #searchbox {
         display: block;
         background-color: purple;
     }    
