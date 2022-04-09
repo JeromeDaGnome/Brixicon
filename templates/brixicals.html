@@ -37,7 +37,7 @@
                         <p>{{ brixical.definition }}</p>
                     </div>
                     <div class="card-action-custom">
-                        <a href="{{ url_for('upvote_brixical', brixical_id=brixical._id, upvotes=brixical.upvotes) }}" class="liker-icon">  <i class="fa-solid fa-2x fa-thumbs-up"> {{ brixical.upvotes }} </i></a>
+                        <a href="{{ url_for('upvote_brixical', brixical_id=brixical._id, upvotes=brixical.upvotes) }}" class="liker-icon">&nbsp;&nbsp;<i class="fa-solid fa-2x fa-thumbs-up"> {{ brixical.upvotes }} </i></a>
                         <a href="{{ url_for('downvote_brixical', brixical_id=brixical._id, downvotes=brixical.downvotes) }}" class="liker-icon"><i class="fa-solid fa-2x fa-thumbs-down"> {{ brixical.downvotes }} </i></a>
                         <p>Added by {{ brixical.created_by }}</p>
                     </div>
