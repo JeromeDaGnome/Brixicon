@@ -4914,11 +4914,13 @@ small {
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color: #ffab40;
+  color: #D50000;
   margin-right: 24px;
   -webkit-transition: color .3s ease;
   transition: color .3s ease;
   text-transform: uppercase;
+  transform: scale(1.4) rotate(-12deg);
+  padding: 24px;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {

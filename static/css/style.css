@@ -52,18 +52,3 @@ a.liker-icon {
     height: 30px;
     width: 65px;
 }
-
-.card .card-stacked .card-action-custom {
-    a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
-    color: #D50000;
-    transform: scale(1.4) rotate(-12deg);
-    padding: 24px;
-}
-
-#searchbox {
-    display: contents;
-}
-
-@media screen and (max-width: 600px) {
-
-}
