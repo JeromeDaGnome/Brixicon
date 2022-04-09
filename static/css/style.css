@@ -54,3 +54,9 @@ a.liker-icon {
     transform: scale(1.4) rotate(-12deg);
     padding: 24px;
 }
+
+@media screen and (max-width: 600px){
+    .row.valign-wrapper.center-align.searchbox {
+        display: block;
+    }    
+}
