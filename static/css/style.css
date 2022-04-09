@@ -64,6 +64,9 @@ a.liker-icon {
     display: contents;
 }
 
+.label-text {
+    color: yellow;
+}
 @media screen and (max-width: 600px) {
     #searchbox {
         display: block;
