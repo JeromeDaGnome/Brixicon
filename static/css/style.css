@@ -55,6 +55,10 @@ a.liker-icon {
     padding: 24px;
 }
 
+.row.valign-wrapper.center-align.searchbox {
+    display: flexbox;
+}
+
 @media screen and (max-width: 600px) {
     .row.valign-wrapper.center-align.searchbox {
         display: block;
