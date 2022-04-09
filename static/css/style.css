@@ -25,3 +25,11 @@ body {
     font-weight: bold;
     justify-content: center;
 }
+
+.brand-title {
+    color: white;
+    text-shadow: 1px 1px black;
+    font-size: large;
+    font-weight: bold;
+    padding: 0 0 0 1.2rem;
+}
