@@ -2875,6 +2875,10 @@ ul.staggered-list li {
   .card.brixicon-entry.card-image {
     max-width: 100%;
   }
+  .edit-box {
+    display: contents;
+    background-color: #50000;
+  }
 }
 
 @media only screen and (max-width: 992px) {
