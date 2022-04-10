@@ -120,15 +120,14 @@ def logout():
 
 @app.route("/add_brixical", methods=["GET", "POST"])
 def add_brixical():
+    if request.method == "POST":
         # check for existing Brixical
-    existing_brixical = mongo.db.brixicals.find_one(
+        existing_brixical = mongo.db.brixicals.find_one(
         {"brixical": request.form.get("brixical")})
 
-    if existing_brixical:
-        flash("Brixical already exists")
-        return redirect(url_for("add_brixical"))
-
-    if request.method == "POST":
+        if existing_brixical:
+            flash("Brixical already exists")
+            return redirect(url_for("add_brixical"))
         upvotes = 0
         downvotes = 0
         brixical = {
