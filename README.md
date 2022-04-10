@@ -1,108 +1,372 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# BRIXICON
 
-Welcome JeromeDaGnome,
+![mobileMenuScreenshot](https://user-images.githubusercontent.com/11600460/162638021-4be29374-eecb-45ea-9931-163a22d95d59.png)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+http://brixicon.herokuapp.com/get_brixicals
+The Brixicon is a LEGO jargon website giving definitions for all the popular terms used in the LEGO community.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
+## Author
+Jeremy Walker
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+## Project Overview
+![image](https://user-images.githubusercontent.com/11600460/162638275-1d42f481-6f04-431a-bf22-7e62c5708394.png)
 
-A blue button should appear to click: _Make Public_,
+Brixicon allows you to quickly and easily find that obscure LEGO term that everyone is blogging about in their latest online posts!  Bright and cheery it represents all that is LEGO giving you clear descriptions of everything from AFOL(Adult Fan of LEGO) to UCS(Ultimate Collector Series) with images included to clarify.  Brixicon has full user authentication and allows registered users to add entries to the Brixicon if there is something missing.  Every entry includes a up and down vote feature to gauge user interest in each entry.  The Brixicon is the premier online responsive destination whether you're sitting at home on your laptop, on the go on your mobile device, or visiting us from your desktop.
 
-Another blue button should appear to click: _Open Browser_.
+http://brixicon.herokuapp.com/get_brixicals
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## HOW TO USE
+This project requires DATA INTERACTION, if you set up user authentication, you should include example accounts to use in your heroku deployment so the assessors can use your site. 
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+### Standard User(allows you to add entries and edit a profile)
+username = usertest
+password = usertest
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Admin User(allows Standard user functionality as well as being able to edit and delete entries)
+username = admin
+password = password
 
-To log into the Heroku toolbelt CLI:
+# Table of Contents
+Copy your readme to http://ecotrust-canada.github.io/markdown-toc/ to make a table of contents.  This will help assessors to see the structure of your readme. Just test it out ast this tool isn't perfect. It tends to mess up with special characters like dashes.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## UX
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Strategy
+Talk about how you landed on your final idea and how you see this idea being useful to both users and site owners.
 
-------
+### Scope
+Talk about long term plans of ths site and what lead you to the MVP (Minimal Viable Product) you delivered.
 
-## Release History
+### Project Goals
+Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+#### User Goals
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+Write goals form the perspective of each user group of your website. Common types of users are:
+> - new users
+> - existing users
+> - admins 
+> - logged in user
+> - unauthenticated user
+> - followers
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Developer Goals
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+List out the goals as a developer you hope to achieve by making this website. 
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### Website Owner Goals
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+List out any goals a website owner would have for this website. You may not develop them, but investors would want to know how they could make money.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+[Back To Table of Contents](#table-of-contents)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### User Stories
+In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+As a user type, I want to perform an action, so that I can achieve a goal.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+[Back To Table of Contents](#table-of-contents)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Design Choices
+Your site is most likely geared to a certain audience, and your design choices should tie into them. Let the assessors know your thought process.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+You may want to re-watch the videos about the [5 planes of UX development ](https://learn.codeinstitute.net/courses/course-v1:codeinstitute+FE+2017_T3/courseware/22905698f3be425d918ebc64c87801b7/9c295bdc5a4048308460e262b14ab7df/) when writing up this section
 
-------
+#### Colors
 
-## FAQ about the uptime script
+- Discuss your color pallet choices and how it ties into users' emotions or target audience.
+- include a screenshot of your pallet using a tool like coolors.co
 
-**Why have you added this script?**
+#### Typography
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- discuss font size, font types for headers vs buttons vs general text and how it ties into users' emotions or target audience.
+- include screenshots of fonts used and links to the appropriate website ex) https://fonts.google.com/specimen/Raleway
 
-**How will this affect me?**
+#### Images
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Explain why you used certain icons and images on your site
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+#### Design Elements
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- list out the type of elements you want to use on your site, this will help you  when choosing a framework and goes hand in hand when doing the wireframes. If you did something out of the ordinary, or think something was particularly clever, add a sentence and a screenshot or reference the file the code or css is in.
 
-**So….?**
+> - desktop navigation
+> - mobile navigation
+> - footer
+> - containers/cards
+> - buttons
+> - text input
+> - textarea inputs
+> - dropdowns
+> - modals/layers
+> - check boxes
+> - switches
+> - accordions/drawers
+> - pagination
+> - date pickers
+> - maps
+> - images
+> - tooltips
+> - icons
+> - tabbed content
+> - file pickers
+> - video players
+> - audio players
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+#### Animations and Transitions
 
-**Can I opt out?**
+- discuss any special animations or transitions you've programmed 
+- special hover state effects
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+
+#### Custom Javascript
+- call attention to any custom javascript you created to help your User Experience you can organize this by functions or files
+
+### Wireframes
+
+This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in a separate directory), or  hosted elsewhere online and can be in any format that is viewable inside the browser.
+
+- You should minimally have wireframes for desktop and mobile. Adding a Tablet view
+
+
+[Back To Table of Contents](#table-of-contents)
+
+### Features
+
+In this section, you should go over the different features of your project, and describe each in a sentence or so along with a screenshot. 
+
+#### Implemented Features
+
+For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+
+It's easiest to break this section down into by pages and common page components such as home page, products page, product detail page, product sort buttons, navigation, and footer. Call out differences between viewports as needed. 
+
+Don't forget your 404 and 500 error pages.
+
+#### Future Features
+
+Use this section to discuss plans for additional features to be implemented in the future:
+
+If you end up not developing some features you hoped to implement, you can include those in this section.
+
+
+# Information Architecture
+
+As part of the requirements for this project you need to have at least one original data models.  It's this section that discusses your data and how each piece relates to another.
+
+ - [draw.io](https://about.draw.io/features/) - is a free program that can be used to create Entity Relationship diagrams and CRUD flow diagrams.
+
+## Entity Relationship Diagram
+
+Use some type of spreadsheet or even draw out one by hand, but you should show how your data models are related to each other  or what those tables are even if they are entirely separate from each other. 
+
+## CRUD Flow Diagrams
+
+It might be overkill, but you could document the flow of how your CRUD operation logic works if its full of complex logic. Using a flow diagram or process diagram might make it easier for accessors to understand the inner workings of your program.
+
+
+## Database Choice
+Write out which database(s) you used and why sometimes you use a different one for local vs production.
+
+### Data Models
+Show the accessors you know your data. If you end up using some data models from an example project, call that out and don't be as detailed about writing those up unless you added to them.  
+
+Each data model that you created yourself should have its Fields, Field Type and any validation documented.  You should also cross-reference any code in your repository that relate to CREATE, READ, UPDATE, DELETE operations for these models. 
+
+
+# Technologies Used
+
+In this section, you should mention the languages, frameworks, libraries, databases and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+
+- If you included a js file that isn't your own, add it here.
+
+- If you included a css file that isn't your own, add it here.
+
+- Common 3rd party technologies to list:
+  - wirefames
+  - favicons
+  - color palette images
+  - fonts
+  - CSS Frameworks
+  - markdown tables
+  - markdown table of contents
+  
+Please note, if this gets more than 5 items, you may want to break it down into logical subsections
+
+## Programming Languages
+
+- [CSS3](https://www.w3schools.com/w3css/default.asp) - used to style DOM appearance. 
+- [HTML5](https://www.w3schools.com/html/default.asp) -  used to define DOM elements. 
+- [JQuery](https://jquery.com) - used to initialize handlers for user interactive elements such as Bootstrap framework pieces like: check boxes, date pickers, menu toggles.
+- [JavaScript](https://www.javascript.com/)  -  used to help handle challenge member entry.
+- [Python](https://www.python.org/) the project back-end functions are written using Python. Django and Python is used to build route functions.
+- [Flask](https://flask-doc.readthedocs.io/en/latest/) - python based templating language
+- [mongodb](https://www.mongodb.com/cloud/atlas)- a fully-managed cloud database used to store manage and query data sets
+- [Markdown](https://www.markdownguide.org/) Documentation within the readme was generated using markdown
+
+[Back To Table of Contents](#table-of-contents)
+
+## Framework & Extensions
+- list out references to all the JS, CSS and requirement packages you used in your project. Include a short reason why this technology was important to your project.
+
+
+## Fonts
+
+Provide a link to any google or other fonts used on your site using markdown links:
+
+- Base Font: [Orbitron](https://fonts.google.com/?query=orbitron&selection.family=Orbitron) 
+- Header Font: [Exo](https://fonts.google.com/?query=orbitron&selection.family=Exo) 
+- Button Icons: [Font Awesome 5](https://fontawesome.com/icons?d=gallery)
+
+## Tools
+In this section you should reference any 3rd party tools you used to make your project or readme. Wireframes, faviocon, github, color palette generators, heroku and any testing emulators are things that belong in this section.
+[Back To Table of Contents](#table-of-contents)
+
+## APIs
+
+List out the API's  you used for this project. 
+
+# Defensive Programming
+
+Sites with admin rules and roles opens a site up to hacking especially if your users are savvy and notice url parameters correlate to database object manipulation.  If you did anything above the basics to defend your application against hacking write them out here.
+   
+[Back To Table of Contents](#table-of-contents)
+
+## Testing
+
+In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+
+If this section grows too long, you may want to split it off into a separate file and link to it from here.
+
+### Validation Testing
+You should try to ensure you code is valid and follows proper indentation.  In this section you should write up any websites you used to validate your code. As your projects becomes more complex these tools may change.
+
+- [CSS Validator](https://jigsaw.w3.org/css-validator/) Note, any error associated with root: color variables were ignored.
+- [HTML Validator](https://validator.w3.org/)
+- [JS validation](https://jshint.com) for each .js file/ , if using ES6, add this before pasting in your file: `/*jshint esversion: 6 */ `
+- [JSON validation](https://jsonlint.com/) for each .json file 
+- [PEP8 Validator](http://pep8online.com/) include a screenshot of results
+
+Note any errors or warnings you are ignoring and why. IT IS BEST NOT to have ERRORS, but NINJA, COLOR VARIABLES sometimes are ok to ignore if you say the IDE that has the correct linters noted no errors. Or you can take the rendered HTML and run it through the HTML validator for the Flask html templates.
+
+If the line is too long just add 
+```$python 
+# noqa
+```
+There is a space before the # and after it to skip the quality assurance for that line.
+
+
+### Cross Browser and Cross Device Testing
+Create a table that lists out what devices, browsers, and operating system you tested your application on and a brief description of why you chose the mixture you did. The point is to prove that you looked at the site across various browsers, operating systems, and viewport breakpoints.
+
+| TOOL / Device                 | BROWSER     | OS         | SCREEN WIDTH  |
+|-------------------------------|-------------|------------|---------------|
+| real phone: motog6            | chrome      | android    | XS 360 x 640  |
+| browser stack: iPhone5s       | safari      | iOs        | XS 320 x 568  |
+| dev tools emulator: pixel 2   | firefox     | android    | SM 411 x 731  |
+| browserstack: iPhone 10x      | Chrome      | iOs        | SM 375 x 812  |
+| browserstack: nexus 7 - vert  | Chrome      | android    | M 600 x 960   |
+| real tablet: ipad mini - vert | safari      | iOs        | M 768 x 1024  |
+| browserstack: nexus 7 - horiz | firefox     | android    | LG 960 x 600  |
+| chrome emulator: ipad - horiz | safari      | iOs        | LG 1024 x 768 |
+| browserstack                  | Chrome      | windows    | XL 1920 x 946 |
+| real computer: mac book pro   | safari 12.1 | Mohave     | XL 1400 x 766 |
+| browserstack                  | IE Edge 88  | windows 10 | XL 1920 x 964 |
+
+### Automated Testing
+Whenever it is feasible, automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+
+If you did not run automating testing. State why you chose not to.
+
+### Manual Testing
+
+You can track your test in various ways.  
+
+But for any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. 
+
+1. Markdown
+>  A particularly useful form for describing your testing process is via scenarios, such as:
+> 
+>  **Register Page**
+>  Go to the Register page: http://<YOUR APPP>.herokuapp.com/register
+>    - [x] Try to submit the empty form and verify that an error message about the required fields appears
+>    - [x] Try to submit the form with an invalid username format and verify that a relevant error message appears
+>    - [x] Try to submit the form with an invalid password format and verify that a relevant error message appears
+>    - [x] Try to submit the form with an existing username, should re-render page with relevant error message/warning
+>    - [x] Try to submit the form with all inputs valid and verify that a success message appears and user is on profile page
+>    - [x] Be logged in and go to register page url http://<YOUR APPP>.herokuapp.com/register, should have error saying you are already registered and be on profile page
+
+2. Spreadsheet    
+> Here is a [Manual Testing Template](https://docs.google.com/spreadsheets/d/189VpSeEG9oevSRhvb2WZl8zCk9L3s2iWQyrJ_1jjAGQ/edit?usp=sharing) that you can use as a starting point to keep track of your testing efforts. Make a copy of it in your own account and update as needed to reflect the browsers you are testing and features.  
+
+3. GitHub Issues, Milestones & Boards
+> You can also use agile tools in github to help track your testing and defects. Here's a document that I put together about that [process](https://docs.google.com/document/d/1nDS5tZeMO77Dfq85IZGMSV6C41XaPm9FwcpR3k-UTVc/edit?usp=sharing)
+
+It's ok to spot check specific functionality across devices and browsers but each page should be viewed as a whole for each device/browser combo at least once.
+
+A quick way to check if items are exceeding the screen width of a project is to run this javascript in the console for various screen emulations:
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+var docWidth = document.documentElement.offsetWidth;
+[].forEach.call(document.querySelectorAll('*'),function(el){if(el.offsetWidth > docWidth){console.log(el);}});
 ```
 
-**Anything more?**
+### Defect Tracking
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+You should mention  any  bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
----
+Here is a [Defect Tracking Template](https://docs.google.com/spreadsheets/d/1tYB4X4wTCNEW_Y1no3hsGbclh2bLokl_I5Ev3s5EuJA/edit?usp=sharing) you use as a starting point to track defects. Make a copy of the sheet to your own account and update the Features sheet to match your project. 
 
-Happy coding!
+Again, you could use [github issues](https://docs.google.com/document/d/1nDS5tZeMO77Dfq85IZGMSV6C41XaPm9FwcpR3k-UTVc/edit?usp=sharing) to track you defects. Or write them up with markdown.
+ 
+### Defects of Note
+Some defects are more pesky than others. Highlight 3-5 of the bugs that drove you the most nuts and how you finally ended up resolving them.
+
+
+### Outstanding Defects
+It's ok to not resolve all the defects you found. If you know of something that isn't quite right, list it out and explain why you chose not to resolve it.
+
+## Deployment
+
+This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages).
+
+In particular, you should provide all details of the differences between the deployed version, and the development version, if any.
+
+Remember to use proper markdown for commands and enumerated steps.
+
+### Deploy Locally
+
+Write out the steps you take starting from cloning the repository in github or clicking a gitpod button to run your code locally. Test it out and make sure it works. This can be running from your IDE of choice like VSCode or PyCharm or GitPod.
+
+You may want to re-watch the videos when writing up this section.
+
+### Deploy To Heroku
+
+Write out steps you would take and test them to deploy your code to Heroku. Include a table of configuration variables as needed in your settings.py file without exposing your own values. Include links to users on how to set up such accounts for AWS, STRIPE or other programs.  
+
+You may want to re-watch the videos when writing up this section.
+
+## Credits
+
+To avoid plagiarism amd copyright infringement, you should mention any other projects, stackoverflow, videos, blogs, etc that you used to gather imagery or ideas for your code even if you used it as a starting point and modified things. Giving credit to other people's efforts and ideas that saved you time acknowledges the hard work others did. 
+
+### Content
+
+Use bullet points to list out sites you copied text from and cross-reference where those show up on your site
+
+### Media
+
+Make a list of sites you used images from. If you used several sites try to match up each image to the correct site. This includes attribution for icons if they came from font awesome or other sites, give them credit.
+
+### Acknowledgments
+
+This is the section where you refer to code examples, mentors, blogs, stack overflow answers and videos that helped you accomplish your end project. Even if it's an idea that you updated you should note the site and why it was important to your completed project.
+
+If you used a CodeInstitute Example project as a starting point. Make note of that here.
+
