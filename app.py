@@ -86,11 +86,11 @@ def edit_profile(user_id):
     return render_template("edit_profile.html", user=user)
 
 
-@app.route("/view_profile/<user_id>")
+@app.route("/view_profile/<username>")
 def view_profile(user_id):
     # collect current users 'username' from db
     user = mongo.db.users.find_one(
-        {"user_id": session["user"]})
+        {"username": session["user"]})
     if session["user"]:
         return render_template("view_profile.html", user=user)
     
@@ -111,11 +111,11 @@ def login():
             # ensure hashed password matches user input
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
+                session["username"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username")))
                 return redirect(url_for(
-                    "view_profile", username=session["user"]))
+                    "view_profile", username=session["username"]))
                 
             else:
                 # invalid password match
