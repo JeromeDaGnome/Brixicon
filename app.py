@@ -34,7 +34,7 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if session.get("user")!= None:
+    if session.get("username")!= None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
@@ -59,14 +59,14 @@ def register():
         mongo.db.users.insert_one(register)
 
         #log the username in the session cookie
-        session["user"] = request.form.get("username").lower()
+        session["username"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("view_profile", username=session["user"]))
+        return redirect(url_for("view_profile", username=session["username"]))
 
     return render_template("register.html")
 
-@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
-def edit_profile(user_id):
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
     if session.get("user")!= None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
@@ -79,26 +79,26 @@ def edit_profile(user_id):
             "email": request.form.get("email").lower(),
             "country": request.form.get("country").lower()
         }
-        mongo.db.users.update_one({"_id": ObjectId(user_id)}, { "$set":update})
+        mongo.db.users.update_one({"username": ObjectId(username)}, { "$set":update})
         flash("Update Successful")
 
-    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
-    return render_template("edit_profile.html", user=user)
+    username = mongo.db.users.find_one({"username": ObjectId(username)})
+    return render_template("edit_profile.html", username=username)
 
 
 @app.route("/view_profile/<username>")
 def view_profile(username):
     # collect current users 'username' from db
-    user = mongo.db.users.find_one(
+    username = mongo.db.users.find_one(
         {"username": session["username"]})
     if session["username"]:
-        return render_template("view_profile.html", user=user)
+        return render_template("view_profile.html", username=username)
     
     return redirect(url_for("login"))
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if session.get("user")!= None:
+    if session.get("username")!= None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
@@ -134,7 +134,7 @@ def login():
 def logout():
     # remove currently logged in user from cookies
     flash("You have been logged out")
-    session.pop("user")
+    session.pop("username")
     return redirect(url_for("login"))
 
 
@@ -156,7 +156,7 @@ def add_brixical():
             "upvotes": upvotes,
             "downvotes": downvotes,
             "imageUrl": request.form.get("imageUrl"),
-            "created_by": session["user"]
+            "created_by": session["username"]
         }
         mongo.db.brixicals.insert_one(brixical)
         flash("Brixicon Entry Successfully Added!")
@@ -167,7 +167,7 @@ def add_brixical():
 
 @app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
 def edit_brixical(brixical_id):
-    if session.get("user")!= "admin":
+    if session.get("username")!= "admin":
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
