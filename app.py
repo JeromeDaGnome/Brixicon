@@ -65,6 +65,39 @@ def register():
 
     return render_template("register.html")
 
+@app.route("/edit_profile<username>", methods=["GET", "POST"])
+def edit_profile():
+    if session.get("user")!= None:
+        flash("What in the Brick are you trying to do?")
+        return redirect(url_for("get_brixicals"))
+
+    if request.method == "POST":
+        
+        update = {
+            "fname": request.form.get("fname").lower(),
+            "lname": request.form.get("lname").lower(),
+            "email": request.form.get("email").lower(),
+            "country": request.form.get("country").lower()
+        }
+        mongo.db.users.update_one({"username": ObjectId(username)}, { "$set":update})
+        flash("Update Successful")
+
+        #log the username in the session cookie
+        return redirect(url_for("view_profile", username=session["user"]))
+
+    return render_template("edit_profile.html")
+
+
+@app.route("/view_profile/<username>")
+def view_profile(username):
+    # collect current users 'username' from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})
+    if session["user"]:
+        return render_template("view_profile.html", username=username)
+    
+    return redirect(url_for("login"))
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("user")!= None:
@@ -97,17 +130,6 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html")
-
-
-@app.route("/view_profile/<username>")
-def view_profile(username):
-    # collect current users 'username' from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})
-    if session["user"]:
-        return render_template("view_profile.html", username=username)
-    
-    return redirect(url_for("login"))
 
 
 @app.route("/logout")
