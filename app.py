@@ -35,6 +35,7 @@ def search():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if session.get("user")!= None:
+        flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
@@ -67,6 +68,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("user")!= None:
+        flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
@@ -118,6 +120,14 @@ def logout():
 
 @app.route("/add_brixical", methods=["GET", "POST"])
 def add_brixical():
+        # check for existing Brixical
+    existing_brixical = mongo.db.brixicals.find_one(
+        {"brixical": request.form.get("brixical")})
+
+    if existing_brixical:
+        flash("Brixical already exists")
+        return redirect(url_for("add_brixical"))
+
     if request.method == "POST":
         upvotes = 0
         downvotes = 0
@@ -139,6 +149,7 @@ def add_brixical():
 @app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
 def edit_brixical(brixical_id):
     if session.get("user")!= "admin":
+        flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
