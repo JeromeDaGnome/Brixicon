@@ -66,7 +66,7 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if session.key("user")!= None:
+    if session.get("user")!= None:
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
