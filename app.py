@@ -82,7 +82,7 @@ def edit_profile(username):
         mongo.db.users.update_one({"username": ObjectId(username)}, { "$set":update})
         flash("Update Successful")
 
-    username = mongo.db.users.find_one({"username.id": ObjectId(username._id)})
+    username = mongo.db.users.find_one({"username": ObjectId(username)})
     return render_template("edit_profile.html", username=username)
 
 
