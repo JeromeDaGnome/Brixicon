@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_brixicals")
 def get_brixicals():
-    brixicals = mongo.db.brixicals.find()
+    brixicals = mongo.db.brixicals.find().sort( { brixword: 1 })
     return render_template("brixicals.html", brixicals=brixicals)
 
 
