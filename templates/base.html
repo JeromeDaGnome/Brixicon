@@ -22,7 +22,7 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
-                {% if session.user %}
+                {% if session.username %}
                     <li><a href="{{ url_for('add_brixical') }}">Add</a></li>
                     <li><a href="{{ url_for('view_profile', user_id=session['user']) }}">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
@@ -38,7 +38,7 @@
         <ul class="sidenav red accent-4" id="mobile-demo">
             <li><h4 class="center-align">Brixicon</h4></li>
             <li><a href="{{ url_for('get_brixicals') }}" aria-label="Home Button">Home</a></li>
-            {% if session.user %}
+            {% if session.username %}
                 <li><a href="{{ url_for('add_brixical') }}" aria-label="Add Entry">Add</a></li>
                 <li><a href="{{ url_for('view_profile', user_id=session['user']) }}" aria-label="View Profile">Profile</a></li>
                 <li><a href="{{ url_for('logout') }}" aria-label="Logout">Logout</a></li>
