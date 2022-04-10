@@ -85,7 +85,7 @@ def edit_profile():
         #log the username in the session cookie
         return redirect(url_for("view_profile", username=session["user"]))
 
-    return render_template("edit_profile.html")
+    return render_template("edit_profile.html", username=username)
 
 
 @app.route("/view_profile/<username>")
