@@ -24,7 +24,7 @@
                 <li><a href="{{ url_for('get_brixicals') }}">Home</a></li>
                 {% if session.username %}
                     <li><a href="{{ url_for('add_brixical') }}">Add</a></li>
-                    <li><a href="{{ url_for('view_profile', user_id=session['user']) }}">Profile</a></li>
+                    <li><a href="{{ url_for('view_profile', username=session['username']) }}">Profile</a></li>
                     <li><a href="{{ url_for('logout') }}">Logout</a></li>
                 {% else %}
                     <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -40,7 +40,7 @@
             <li><a href="{{ url_for('get_brixicals') }}" aria-label="Home Button">Home</a></li>
             {% if session.username %}
                 <li><a href="{{ url_for('add_brixical') }}" aria-label="Add Entry">Add</a></li>
-                <li><a href="{{ url_for('view_profile', user_id=session['user']) }}" aria-label="View Profile">Profile</a></li>
+                <li><a href="{{ url_for('view_profile', username=session['username']) }}" aria-label="View Profile">Profile</a></li>
                 <li><a href="{{ url_for('logout') }}" aria-label="Logout">Logout</a></li>
             {% else %}
                 <li><a href="{{ url_for('register') }}" aria-label="Register">Register</a></li>
