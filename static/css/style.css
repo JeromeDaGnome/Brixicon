@@ -60,3 +60,7 @@ a.liker-icon {
     text-shadow: none;
     padding-left: 25px;
 }
+
+.edit-box {
+    display: block;
+}
