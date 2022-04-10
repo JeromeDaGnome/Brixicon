@@ -14,7 +14,9 @@
                     <p>Email: {{ username.email }}</p>
                     <p>Country: {{ username.country }}</p>
                 </div>
-
+                <div class="card-action">
+                    <a href="{{ url_for('edit_profile', username=" & {{ username.username }} & ") }}" class="btn-small yellow black-text">Edit Profile</a>
+                </div>
             </div>
         </div>
     </div>  
