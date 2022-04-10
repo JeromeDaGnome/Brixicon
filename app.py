@@ -67,7 +67,7 @@ def register():
 
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
-    if session.get("username")!= None:
+    if session.get("username")!= session['username']:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
