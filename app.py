@@ -66,7 +66,7 @@ def register():
     return render_template("register.html")
 
 @app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
-def edit_profile():
+def edit_profile(user_id):
     if session.get("user")!= None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
@@ -79,11 +79,9 @@ def edit_profile():
             "email": request.form.get("email").lower(),
             "country": request.form.get("country").lower()
         }
-        mongo.db.users.update_one({"username": ObjectId(username)}, { "$set":update})
+        mongo.db.users.update_one({"_id": ObjectId(user_id)}, { "$set":update})
         flash("Update Successful")
 
-        #log the username in the session cookie
-        return redirect(url_for("view_profile", username=session["user"]))
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     return render_template("edit_profile.html", user=user)
 
