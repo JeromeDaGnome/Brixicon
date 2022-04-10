@@ -65,7 +65,7 @@ def register():
 
     return render_template("register.html")
 
-@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
 def edit_profile():
     if session.get("user")!= None:
         flash("What in the Brick are you trying to do?")
@@ -84,8 +84,8 @@ def edit_profile():
 
         #log the username in the session cookie
         return redirect(url_for("view_profile", username=session["user"]))
-
-    return render_template("edit_profile.html", username=username)
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    return render_template("edit_profile.html", user=user)
 
 
 @app.route("/view_profile/<username>")
