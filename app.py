@@ -65,7 +65,7 @@ def register():
 
     return render_template("register.html")
 
-@app.route("/edit_profile<username>", methods=["GET", "POST"])
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile():
     if session.get("user")!= None:
         flash("What in the Brick are you trying to do?")
