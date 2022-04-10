@@ -67,7 +67,7 @@ def register():
 
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
-    if session.get("user")!= None:
+    if session.get("username")!= None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
@@ -82,7 +82,7 @@ def edit_profile(username):
         mongo.db.users.update_one({"username": ObjectId(username)}, { "$set":update})
         flash("Update Successful")
 
-    username = mongo.db.users.find_one({"username": ObjectId(username._id)})
+    username = mongo.db.users.find_one({"username.id": ObjectId(username._id)})
     return render_template("edit_profile.html", username=username)
 
 
