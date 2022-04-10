@@ -24,7 +24,7 @@
     {% for brixical in brixicals %}
         <div class="col s12 m7">
             <h4 class="header">{{ brixical.brixword }}</h4>
-            <div class="card horizontal">
+            <div class="card horizontal brixicon-entry">
                 <div class="card-image">
                     <img src="{{ brixical.imageUrl }}">
                     {% if session.user == "admin" %}
