@@ -34,6 +34,9 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if session["user"]:
+        return redirect(url_for("get_brixicals"))
+
     if request.method == "POST":
         # check for existing Username
         existing_user = mongo.db.users.find_one(
@@ -63,6 +66,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if session["user"]:
+        return redirect(url_for("get_brixicals"))
+
     if request.method == "POST":
         # check if username exists
         existing_user = mongo.db.users.find_one(
@@ -132,7 +138,9 @@ def add_brixical():
 
 @app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
 def edit_brixical(brixical_id):
-    
+    if session.user!="admin":
+        return redirect(url_for("get_brixicals"))
+
     if request.method == "POST":
 
         submit = {
