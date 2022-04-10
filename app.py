@@ -91,7 +91,7 @@ def view_profile(username):
     # collect current users 'username' from db
     user = mongo.db.users.find_one(
         {"username": session["username"]})
-    if session["user"]:
+    if session["username"]:
         return render_template("view_profile.html", user=user)
     
     return redirect(url_for("login"))
