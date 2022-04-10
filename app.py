@@ -34,7 +34,7 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if session["user"]:
+    if session.get("user")!= None:
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
@@ -138,7 +138,7 @@ def add_brixical():
 
 @app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
 def edit_brixical(brixical_id):
-    if session.user!="admin":
+    if session.get("user")!= "admin":
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
