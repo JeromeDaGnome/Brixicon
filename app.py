@@ -87,7 +87,7 @@ def edit_profile(user_id):
 
 
 @app.route("/view_profile/<username>")
-def view_profile(user_id):
+def view_profile(username):
     # collect current users 'username' from db
     user = mongo.db.users.find_one(
         {"username": session["user"]})
