@@ -4,13 +4,13 @@
     <h3 class="center-align">Edit Profile</h3>
 
     <div class="row card-panel red accent-4 edit-box">
-        <form class="col s12" method="POST" action="{{ url_for('edit_profile', username=username) }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_profile', user_id=user._id) }}">
             <!-- First Name -->
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix"></i>
                     <input id="fname" name="fname" type="text" 
-                        value="{{ username.fname }}" class="validate" required>
+                        value="{{ user.fname }}" class="validate" required>
                     <label for="fname">First Name</label>
                 </div>
             </div>
@@ -19,7 +19,7 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-pencil prefix"></i>
                     <input id="lname" name="lname" type="text"  
-                        value="{{ username.lname }}" class="validate" required>
+                        value="{{ user.lname }}" class="validate" required>
                     <label for="lname">Last Name</label>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-at prefix"></i>
                     <input id="email" name="email" type="text" 
-                        value="{{ username.email }}" class="validate" required>
+                        value="{{ user.email }}" class="validate" required>
                     <label for="email">Email</label>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="input-field col s12">
                     <i class="fa-solid fa-earth-americas prefix"></i>
                     <input id="country" name="country" type="text"  
-                        value="{{ username.country }}" class="validate" required>
+                        value="{{ user.country }}" class="validate" required>
                     <label for="country">Country</label>
                 </div>
             </div>

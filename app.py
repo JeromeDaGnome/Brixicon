@@ -86,11 +86,11 @@ def edit_profile(user_id):
     return render_template("edit_profile.html", user=user)
 
 
-@app.route("/view_profile/<username>")
-def view_profile(username):
+@app.route("/view_profile/<user_id>")
+def view_profile(user_id):
     # collect current users 'username' from db
     username = mongo.db.users.find_one(
-        {"username": session["user"]})
+        {"user_id": session["user"]})
     if session["user"]:
         return render_template("view_profile.html", username=username)
     
