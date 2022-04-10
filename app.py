@@ -79,7 +79,7 @@ def edit_profile(username):
             "email": request.form.get("email").lower(),
             "country": request.form.get("country").lower()
         }
-        mongo.db.users.update_one({"username": ObjectId(username)}, { "$set":update})
+        mongo.db.users.update_one({"username": session['username']}, { "$set":update})
         flash("Update Successful")
 
     username = mongo.db.users.find_one({"username": session["username"]})
