@@ -80,8 +80,7 @@ The color palette for this site was inspired solely by the logo for LEGO and the
 
 #### Typography
 
-- discuss font size, font types for headers vs buttons vs general text and how it ties into users' emotions or target audience.
-- include screenshots of fonts used and links to the appropriate website ex) https://fonts.google.com/specimen/Raleway
+No special font types were used for this site.  Custom stylings were applied to Headers for pages and edit and creation boxes.  colors were kept to the primary color scheme.  
 
 #### Images
 
@@ -137,46 +136,33 @@ In the future additional developements would include;
 
 # Information Architecture
 
-As part of the requirements for this project you need to have at least one original data models.  It's this section that discusses your data and how each piece relates to another.
-
- - [draw.io](https://about.draw.io/features/) - is a free program that can be used to create Entity Relationship diagrams and CRUD flow diagrams.
-
 ## Entity Relationship Diagram
 
-Use some type of spreadsheet or even draw out one by hand, but you should show how your data models are related to each other  or what those tables are even if they are entirely separate from each other. 
-
-## CRUD Flow Diagrams
-
-It might be overkill, but you could document the flow of how your CRUD operation logic works if its full of complex logic. Using a flow diagram or process diagram might make it easier for accessors to understand the inner workings of your program.
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/11600460/162652603-79d641be-f9b6-4cce-9e68-b81e630ce129.png)
 
 
 ## Database Choice
-Write out which database(s) you used and why sometimes you use a different one for local vs production.
+MongoDB was used as the database for this site.
 
 ### Data Models
-Show the accessors you know your data. If you end up using some data models from an example project, call that out and don't be as detailed about writing those up unless you added to them.  
+CREATE, READ, UPDATE, AND DELETE functionality are achieved with both data models.  
 
-Each data model that you created yourself should have its Fields, Field Type and any validation documented.  You should also cross-reference any code in your repository that relate to CREATE, READ, UPDATE, DELETE operations for these models. 
+With the user's table a new user is able to CREATE a new profile(register.html), READ the profile (view_profile.html), and UPDATE a profile (update_profile.html).
+
+With the brixical table a registered user can CREATE a new entry(add_brixical.html), and READ entries(brixicals.html).  The Admin level user can UPDATE brixicals(edit_brixical.html), and DELETE an entry(delete functionality within python program).
 
 
 # Technologies Used
 
-In this section, you should mention the languages, frameworks, libraries, databases and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
-- If you included a js file that isn't your own, add it here.
-
-- If you included a css file that isn't your own, add it here.
-
-- Common 3rd party technologies to list:
-  - wirefames
-  - favicons
-  - color palette images
-  - fonts
-  - CSS Frameworks
-  - markdown tables
-  - markdown table of contents
-  
-Please note, if this gets more than 5 items, you may want to break it down into logical subsections
+> - Wireframes were created with Balsamiq(https://balsamiq.com/) A free and easy to use wireframe creation program. 
+> - Custom favicon was created here https://favicon.io/favicon-converter/ Using a picture of a single stud brick I created a custom Favicon to use cross platform.
+> - Color palette was created here https://coolors.co/ 
+> - CSS customization was achieved using https://materializecss.com/ I took the materialize css file and made modifications to some of the classes and media queries to better suit my site.
+> - Database technology was done through https://www.mongodb.com/ I aslo paired that up with Flask and it's jinja templating to perform data requests and pushes.
+> - All Python hosting was accomplished with https://heroku.com/ Gitpod pages doesn't allow python driven pages.
+> - Site was designed and tested here https://gitpod.com/ 
+> - Repository for files was here https://github.com/
+> - Additional database management was achieved through https://flask.palletsprojects.com/en/2.1.x/
 
 ## Programming Languages
 
@@ -192,44 +178,42 @@ Please note, if this gets more than 5 items, you may want to break it down into 
 [Back To Table of Contents](#table-of-contents)
 
 ## Framework & Extensions
-- list out references to all the JS, CSS and requirement packages you used in your project. Include a short reason why this technology was important to your project.
+
+Requirements for the site are as follows:
+Python(site programming and interface with data), Flask(python to mongoDB connections and site programming), MongoDB(data modeling), and Werkzeug(site security).
 
 
 ## Fonts
 
 Provide a link to any google or other fonts used on your site using markdown links:
 
-- Base Font: [Orbitron](https://fonts.google.com/?query=orbitron&selection.family=Orbitron) 
-- Header Font: [Exo](https://fonts.google.com/?query=orbitron&selection.family=Exo) 
-- Button Icons: [Font Awesome 5](https://fontawesome.com/icons?d=gallery)
+- Button and text input Icons: [Font Awesome 5](https://fontawesome.com/icons?d=gallery)
 
 ## Tools
-In this section you should reference any 3rd party tools you used to make your project or readme. Wireframes, faviocon, github, color palette generators, heroku and any testing emulators are things that belong in this section.
+Balsamiq
+favicon.io
+coolor.co
+diagrams.net
+Gitpod
+Heroku
+Chrome Developer Tools
+
 [Back To Table of Contents](#table-of-contents)
-
-## APIs
-
-List out the API's  you used for this project. 
 
 # Defensive Programming
 
-Sites with admin rules and roles opens a site up to hacking especially if your users are savvy and notice url parameters correlate to database object manipulation.  If you did anything above the basics to defend your application against hacking write them out here.
+I used  Werkzeug for site security.  Password hashing was the main method to enrypt sensative data.
    
 [Back To Table of Contents](#table-of-contents)
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+I tested this site personally on laptop/desktop and android devices.  I had others test it via Apple devices(Iphone 12 / SE / and IPAD).  I also used Chrome Developer tools to emulate a number of mobile devices and tablets.
 
 ### Validation Testing
-You should try to ensure you code is valid and follows proper indentation.  In this section you should write up any websites you used to validate your code. As your projects becomes more complex these tools may change.
 
-- [CSS Validator](https://jigsaw.w3.org/css-validator/) Note, any error associated with root: color variables were ignored.
+- [CSS Validator](https://jigsaw.w3.org/css-validator/) Css errors with 3rd parties are being ignored(materialize and font-awesome).
 - [HTML Validator](https://validator.w3.org/)
-- [JS validation](https://jshint.com) for each .js file/ , if using ES6, add this before pasting in your file: `/*jshint esversion: 6 */ `
-- [JSON validation](https://jsonlint.com/) for each .json file 
 - [PEP8 Validator](http://pep8online.com/) include a screenshot of results
 
 Note any errors or warnings you are ignoring and why. IT IS BEST NOT to have ERRORS, but NINJA, COLOR VARIABLES sometimes are ok to ignore if you say the IDE that has the correct linters noted no errors. Or you can take the rendered HTML and run it through the HTML validator for the Flask html templates.
