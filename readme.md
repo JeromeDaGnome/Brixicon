@@ -29,7 +29,56 @@ username = admin
 password = password
 
 # Table of Contents
-Copy your readme to http://ecotrust-canada.github.io/markdown-toc/ to make a table of contents.  This will help assessors to see the structure of your readme. Just test it out ast this tool isn't perfect. It tends to mess up with special characters like dashes.
+- [BRIXICON](#brixicon)
+  * [Author](#author)
+  * [Project Overview](#project-overview)
+  * [HOW TO USE](#how-to-use)
+    + [Standard User(allows you to add entries and edit a profile)](#standard-user-allows-you-to-add-entries-and-edit-a-profile-)
+    + [Admin User(allows Standard user functionality as well as being able to edit and delete entries)](#admin-user-allows-standard-user-functionality-as-well-as-being-able-to-edit-and-delete-entries-)
+- [Table of Contents](#table-of-contents)
+  * [UX](#ux)
+    + [Strategy](#strategy)
+    + [Scope](#scope)
+    + [Project Goals](#project-goals)
+      - [User Goals](#user-goals)
+      - [Developer Goals](#developer-goals)
+      - [Website Owner Goals](#website-owner-goals)
+    + [User Stories](#user-stories)
+    + [Design Choices](#design-choices)
+      - [Colors](#colors)
+      - [Typography](#typography)
+      - [Images](#images)
+      - [Design Elements](#design-elements)
+      - [Animations and Transitions](#animations-and-transitions)
+    + [Wireframes](#wireframes)
+    + [Features](#features)
+      - [Future Features](#future-features)
+- [Information Architecture](#information-architecture)
+  * [Entity Relationship Diagram](#entity-relationship-diagram)
+  * [Database Choice](#database-choice)
+    + [Data Models](#data-models)
+- [Technologies Used](#technologies-used)
+  * [Programming Languages](#programming-languages)
+  * [Framework & Extensions](#framework---extensions)
+  * [Fonts](#fonts)
+  * [Tools](#tools)
+- [Defensive Programming](#defensive-programming)
+  * [Testing](#testing)
+    + [Validation Testing](#validation-testing)
+    + [Cross Browser and Cross Device Testing](#cross-browser-and-cross-device-testing)
+    + [Manual Testing](#manual-testing)
+    + [Defect Tracking](#defect-tracking)
+    + [Outstanding Defects](#outstanding-defects)
+  * [Deployment](#deployment)
+    + [Deploy Locally](#deploy-locally)
+    + [Deploy To Heroku](#deploy-to-heroku)
+  * [Credits](#credits)
+    + [Content](#content)
+    + [Media](#media)
+    + [Acknowledgments](#acknowledgments)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 ## UX
 
@@ -101,9 +150,6 @@ Site design elements to be used in this creating are as follows:
 #### Animations and Transitions
 
 On the main page when you hover over one of the up or down vote items it will change color, enlarge, and turn slightly.  
-
-#### Custom Javascript
-- call attention to any custom javascript you created to help your User Experience you can organize this by functions or files
 
 ### Wireframes
 
@@ -185,8 +231,6 @@ Python(site programming and interface with data), Flask(python to mongoDB connec
 
 ## Fonts
 
-Provide a link to any google or other fonts used on your site using markdown links:
-
 - Button and text input Icons: [Font Awesome 5](https://fontawesome.com/icons?d=gallery)
 
 ## Tools
@@ -260,47 +304,43 @@ I tested this site personally on laptop/desktop and android devices.  I had othe
 
 ### Defect Tracking
 
-### Defects of Note
-Some defects are more pesky than others. Highlight 3-5 of the bugs that drove you the most nuts and how you finally ended up resolving them.
-
-
 ### Outstanding Defects
-It's ok to not resolve all the defects you found. If you know of something that isn't quite right, list it out and explain why you chose not to resolve it.
-
+See github issue tracking for details of bugs and solutions.
+   
 ## Deployment
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages).
-
-In particular, you should provide all details of the differences between the deployed version, and the development version, if any.
-
-Remember to use proper markdown for commands and enumerated steps.
 
 ### Deploy Locally
 
-Write out the steps you take starting from cloning the repository in github or clicking a gitpod button to run your code locally. Test it out and make sure it works. This can be running from your IDE of choice like VSCode or PyCharm or GitPod.
-
-You may want to re-watch the videos when writing up this section.
+I could not deploy locally.  I had to use Heroku for all my deployment and testing after uploading to github.
 
 ### Deploy To Heroku
 
-Write out steps you would take and test them to deploy your code to Heroku. Include a table of configuration variables as needed in your settings.py file without exposing your own values. Include links to users on how to set up such accounts for AWS, STRIPE or other programs.  
-
-You may want to re-watch the videos when writing up this section.
+1.  Create connection to Github repository.
+2.  In Heroku settings create key list and populate with data from python file to connect to mongoDB.
+      IP
+      MONGO_DBNAME
+      MONGO_URI
+      PORT
+      SECRET_KEY
+3.  In Deploy tab make sure "automatic deploys" is enabled.
+4.  Push all changes to github and ensure you sync changes.
 
 ## Credits
 
-To avoid plagiarism amd copyright infringement, you should mention any other projects, stackoverflow, videos, blogs, etc that you used to gather imagery or ideas for your code even if you used it as a starting point and modified things. Giving credit to other people's efforts and ideas that saved you time acknowledges the hard work others did. 
-
 ### Content
 
-Use bullet points to list out sites you copied text from and cross-reference where those show up on your site
-
+Data for Brixicon came from https://blog.firestartoys.com/a-lego-glossary/.
+   
 ### Media
 
-Make a list of sites you used images from. If you used several sites try to match up each image to the correct site. This includes attribution for icons if they came from font awesome or other sites, give them credit.
+Imagery for Brixicon came from https://blog.firestartoys.com/a-lego-glossary/.
+Where images were not availble from there images were found using Google Image search.
+Were this site to go to any commercial state I would take my own pictures to use to avoid any image use issues.
 
 ### Acknowledgments
 
-This is the section where you refer to code examples, mentors, blogs, stack overflow answers and videos that helped you accomplish your end project. Even if it's an idea that you updated you should note the site and why it was important to your completed project.
-
-If you used a CodeInstitute Example project as a starting point. Make note of that here.
+I loosely followed some of the Code Institute course work to start the basic app routes and data acquisitions.  I then branched out and had to adapt most of it to my specialized situations.
+   
+I used text and images from https://blog.firestartoys.com/a-lego-glossary/ for content and media as this was an exercise to showcase skills in coding and design not data entry and photography.
+   
+I'd like to acknowledge my mentor Malia Havlicek for her advice and extensive review of my site.  It was crucial to getting this project done in time for submittal.  
