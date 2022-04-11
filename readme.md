@@ -212,70 +212,54 @@ I tested this site personally on laptop/desktop and android devices.  I had othe
 
 ### Validation Testing
 
-- [CSS Validator](https://jigsaw.w3.org/css-validator/) Css errors with 3rd parties are being ignored(materialize and font-awesome).
-- [HTML Validator](https://validator.w3.org/)
+- [CSS Validator](https://jigsaw.w3.org/css-validator/) Css errors with 3rd parties are being ignored(materialize and font-awesome).![image](https://user-images.githubusercontent.com/11600460/162661767-8b4211f8-28a8-4578-b664-7fa1a448637f.png)
+
+- [HTML Validator](https://validator.w3.org/)![image](https://user-images.githubusercontent.com/11600460/162660683-3418cbe2-6086-4141-aa79-68f19d27f427.png)
+
 - [PEP8 Validator](http://pep8online.com/) ![image](https://user-images.githubusercontent.com/11600460/162660419-bec0b3e2-4408-4a09-8fb4-492defd0ceae.png)
 
 
-
 ### Cross Browser and Cross Device Testing
-Create a table that lists out what devices, browsers, and operating system you tested your application on and a brief description of why you chose the mixture you did. The point is to prove that you looked at the site across various browsers, operating systems, and viewport breakpoints.
+
 
 | TOOL / Device                 | BROWSER     | OS         | SCREEN WIDTH  |
 |-------------------------------|-------------|------------|---------------|
-| real phone: motog6            | chrome      | android    | XS 360 x 640  |
-| browser stack: iPhone5s       | safari      | iOs        | XS 320 x 568  |
-| dev tools emulator: pixel 2   | firefox     | android    | SM 411 x 731  |
+| real phone: iPhoneSE          | safari      | iOs        | XS 375 x 667  |
+| dev tools emulator: GalaxyS20 | Chrome      | android    | SM 412 x 915  |
 | browserstack: iPhone 10x      | Chrome      | iOs        | SM 375 x 812  |
-| browserstack: nexus 7 - vert  | Chrome      | android    | M 600 x 960   |
-| real tablet: ipad mini - vert | safari      | iOs        | M 768 x 1024  |
-| browserstack: nexus 7 - horiz | firefox     | android    | LG 960 x 600  |
-| chrome emulator: ipad - horiz | safari      | iOs        | LG 1024 x 768 |
+| dev tools emulator: ipad mini | safari      | iOs        | M 768 x 1024  |
+| dev tools emulator: ipad air  | safari      | iOs        | LG 820 x 1180 |
 | browserstack                  | Chrome      | windows    | XL 1920 x 946 |
-| real computer: mac book pro   | safari 12.1 | Mohave     | XL 1400 x 766 |
-| browserstack                  | IE Edge 88  | windows 10 | XL 1920 x 964 |
+
 
 ### Manual Testing
 
-You can track your test in various ways.  
-
-But for any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. 
-
-1. Markdown
->  A particularly useful form for describing your testing process is via scenarios, such as:
-> 
 >  **Register Page**
->  Go to the Register page: http://<YOUR APPP>.herokuapp.com/register
+>  Go to the Register page: http://brixicon.herokuapp.com/register
 >    - [x] Try to submit the empty form and verify that an error message about the required fields appears
 >    - [x] Try to submit the form with an invalid username format and verify that a relevant error message appears
 >    - [x] Try to submit the form with an invalid password format and verify that a relevant error message appears
 >    - [x] Try to submit the form with an existing username, should re-render page with relevant error message/warning
 >    - [x] Try to submit the form with all inputs valid and verify that a success message appears and user is on profile page
 >    - [x] Be logged in and go to register page url http://<YOUR APPP>.herokuapp.com/register, should have error saying you are already registered and be on profile page
+   
+>  **Edit Profile Page**
+>    - [x] Try to submit the form with all inputs valid and verify that a success message appears and user is on profile page
+>    - [x] Try to submit the form with inputs invalid and verify that an error message appears
 
-2. Spreadsheet    
-> Here is a [Manual Testing Template](https://docs.google.com/spreadsheets/d/189VpSeEG9oevSRhvb2WZl8zCk9L3s2iWQyrJ_1jjAGQ/edit?usp=sharing) that you can use as a starting point to keep track of your testing efforts. Make a copy of it in your own account and update as needed to reflect the browsers you are testing and features.  
+>  **Add Brixical Page**
+>    - [x] Try to submit the form with all inputs valid and verify that a success message appears and user is on profile page
+>    - [x] Try to submit the form with inputs invalid and verify that an error message appears
+>    - [x] Try to submit the form with duplicate entry and verify that an error message appears
 
-3. GitHub Issues, Milestones & Boards
-> You can also use agile tools in github to help track your testing and defects. Here's a document that I put together about that [process](https://docs.google.com/document/d/1nDS5tZeMO77Dfq85IZGMSV6C41XaPm9FwcpR3k-UTVc/edit?usp=sharing)
+   >  **Edit Brixical Page**
+>    - [x] Try to submit the form with all inputs valid and verify that a success message appears and user is on profile page
+>    - [x] Try to submit the form with inputs invalid and verify that an error message appears
+>    - [x] Try to submit the form with duplicate entry and verify that an error message appears
 
-It's ok to spot check specific functionality across devices and browsers but each page should be viewed as a whole for each device/browser combo at least once.
-
-A quick way to check if items are exceeding the screen width of a project is to run this javascript in the console for various screen emulations:
-
-```
-var docWidth = document.documentElement.offsetWidth;
-[].forEach.call(document.querySelectorAll('*'),function(el){if(el.offsetWidth > docWidth){console.log(el);}});
-```
 
 ### Defect Tracking
 
-You should mention  any  bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-Here is a [Defect Tracking Template](https://docs.google.com/spreadsheets/d/1tYB4X4wTCNEW_Y1no3hsGbclh2bLokl_I5Ev3s5EuJA/edit?usp=sharing) you use as a starting point to track defects. Make a copy of the sheet to your own account and update the Features sheet to match your project. 
-
-Again, you could use [github issues](https://docs.google.com/document/d/1nDS5tZeMO77Dfq85IZGMSV6C41XaPm9FwcpR3k-UTVc/edit?usp=sharing) to track you defects. Or write them up with markdown.
- 
 ### Defects of Note
 Some defects are more pesky than others. Highlight 3-5 of the bugs that drove you the most nuts and how you finally ended up resolving them.
 
