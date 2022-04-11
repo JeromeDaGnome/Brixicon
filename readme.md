@@ -214,15 +214,8 @@ I tested this site personally on laptop/desktop and android devices.  I had othe
 
 - [CSS Validator](https://jigsaw.w3.org/css-validator/) Css errors with 3rd parties are being ignored(materialize and font-awesome).
 - [HTML Validator](https://validator.w3.org/)
-- [PEP8 Validator](http://pep8online.com/) include a screenshot of results
+- [PEP8 Validator](http://pep8online.com/) ![image](https://user-images.githubusercontent.com/11600460/162660419-bec0b3e2-4408-4a09-8fb4-492defd0ceae.png)
 
-Note any errors or warnings you are ignoring and why. IT IS BEST NOT to have ERRORS, but NINJA, COLOR VARIABLES sometimes are ok to ignore if you say the IDE that has the correct linters noted no errors. Or you can take the rendered HTML and run it through the HTML validator for the Flask html templates.
-
-If the line is too long just add 
-```$python 
-# noqa
-```
-There is a space before the # and after it to skip the quality assurance for that line.
 
 
 ### Cross Browser and Cross Device Testing
@@ -241,11 +234,6 @@ Create a table that lists out what devices, browsers, and operating system you t
 | browserstack                  | Chrome      | windows    | XL 1920 x 946 |
 | real computer: mac book pro   | safari 12.1 | Mohave     | XL 1400 x 766 |
 | browserstack                  | IE Edge 88  | windows 10 | XL 1920 x 964 |
-
-### Automated Testing
-Whenever it is feasible, automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-If you did not run automating testing. State why you chose not to.
 
 ### Manual Testing
 
