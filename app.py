@@ -21,20 +21,20 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_brixicals")
 def get_brixicals():
-    brixicals = mongo.db.brixicals.find( ).sort("brixword")
+    brixicals = mongo.db.brixicals.find().sort("brixword")
     return render_template("brixicals.html", brixicals=brixicals)
 
 
-@app.route("/search", methods=["GET","POST"])
+@app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    brixicals = mongo.db.brixicals.find({"$text":{"$search": query}})
+    brixicals = mongo.db.brixicals.find({"$text": {"$search": query}})
     return render_template("brixicals.html", brixicals=brixicals)
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    if session.get("username")!= None:
+    if session.get("username") is not None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
@@ -50,7 +50,7 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash
-                (request.form.get("password")),
+            (request.form.get("password")),
             "fname": request.form.get("fname").lower(),
             "lname": request.form.get("lname").lower(),
             "email": request.form.get("email").lower(),
@@ -58,28 +58,29 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
-        #log the username in the session cookie
+        # log the username in the session cookie
         session["username"] = request.form.get("username").lower()
         flash("Registration Successful")
         return redirect(url_for("view_profile", username=session["username"]))
 
     return render_template("register.html")
 
+
 @app.route("/edit_profile/<username>", methods=["GET", "POST"])
 def edit_profile(username):
-    if session.get("username")!= session['username']:
+    if session.get("username") != session['username']:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
     if request.method == "POST":
-        
         update = {
             "fname": request.form.get("fname").lower(),
             "lname": request.form.get("lname").lower(),
             "email": request.form.get("email").lower(),
             "country": request.form.get("country").lower()
         }
-        mongo.db.users.update_one({"username": session['username']}, { "$set":update})
+        mongo.db.users.update_one({
+            "username": session['username']}, {"$set": update})
         flash("Update Successful")
 
     username = mongo.db.users.find_one({"username": session["username"]})
@@ -93,12 +94,12 @@ def view_profile(username):
         {"username": session["username"]})
     if session["username"]:
         return render_template("view_profile.html", username=username)
-    
     return redirect(url_for("login"))
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    if session.get("username")!= None:
+    if session.get("username") is not None:
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
@@ -106,22 +107,20 @@ def login():
         # check if username exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-        
         if existing_user:
             # ensure hashed password matches user input
-            if check_password_hash(
-                existing_user["password"], request.form.get("password")):
+            if check_password_hash(existing_user["password"],
+                                   request.form.get("password")):
                 session["username"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(
-                    request.form.get("username")))
+                flash("Welcome, {}".format(request.form.get("username")))
                 return redirect(url_for(
                     "view_profile", username=session["username"]))
-                
+
             else:
                 # invalid password match
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-    
+
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
@@ -143,8 +142,7 @@ def add_brixical():
     if request.method == "POST":
         # check for existing brixword
         existing_brixword = mongo.db.brixicals.find_one(
-        {"brixword": request.form.get("brixword")})
-
+            {"brixword": request.form.get("brixword")})
         if existing_brixword:
             flash("Brixword already exists")
             return redirect(url_for("add_brixical"))
@@ -167,7 +165,7 @@ def add_brixical():
 
 @app.route("/edit_brixical/<brixical_id>", methods=["GET", "POST"])
 def edit_brixical(brixical_id):
-    if session.get("username")!= "admin":
+    if session.get("username") != "admin":
         flash("What in the Brick are you trying to do?")
         return redirect(url_for("get_brixicals"))
 
@@ -178,9 +176,10 @@ def edit_brixical(brixical_id):
             "definition": request.form.get("definition"),
             "imageUrl": request.form.get("imageUrl"),
         }
-        mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+        mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)},
+                                      {"$set": submit})
         flash("Brixicon Entry Successfully Updated!")
-        
+
     brixical = mongo.db.brixicals.find_one({"_id": ObjectId(brixical_id)})
     return render_template("edit_brixical.html", brixical=brixical)
 
@@ -194,18 +193,20 @@ def delete_brixical(brixical_id):
 
 @app.route("/upvote_brixical/<brixical_id>/<upvotes>", methods=["GET", "POST"])
 def upvote_brixical(brixical_id, upvotes):
-    
+
     upvotes = int(upvotes) + 1
     upvotes = str(upvotes)
     submit = {
         "upvotes": upvotes
     }
-    mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+    mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)},
+                                  {"$set": submit})
     flash("Thanks for the Upvote!")
     return redirect(url_for("get_brixicals"))
 
 
-@app.route("/downvote_brixical/<brixical_id>/<downvotes>", methods=["GET", "POST"])
+@app.route("/downvote_brixical/<brixical_id>/<downvotes>",
+           methods=["GET", "POST"])
 def downvote_brixical(brixical_id, downvotes):
 
     downvotes = int(downvotes) + 1
@@ -213,12 +214,13 @@ def downvote_brixical(brixical_id, downvotes):
     submit = {
         "downvotes": downvotes
     }
-    mongo.db.brixicals.update_one({"_id": ObjectId(brixical_id)}, { "$set":submit})
+    mongo.db.brixicals.update_one(
+        {"_id": ObjectId(brixical_id)}, {"$set": submit})
     flash("Thanks for the Downvote!")
     return redirect(url_for("get_brixicals"))
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=True)
+            port=int(os.environ.get("PORT")),
+            debug=True)
